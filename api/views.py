@@ -35,7 +35,7 @@ def taskList(request):
 @api_view(['GET'])
 def taskDetail(request, pk):
   tasks = Tasks.objects.get(id=pk)
-  #serialize all fields by setting many to True
+  #serialize just one field by setting many to false
   serializer = TasksSerializer(tasks, many=False)
   return Response(serializer.data)
 
